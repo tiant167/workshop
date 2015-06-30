@@ -9,5 +9,10 @@ var app = module.exports = koa();
  */
 
 app.use(function* () {
-
+  this.response.body = 'hello world';
+  // following headers are set automatically
+  // this.response.set({
+  //   'Content-Length': '11',
+  //   'Content-Type': 'text/plain; charset=utf-8'
+  // });
 });

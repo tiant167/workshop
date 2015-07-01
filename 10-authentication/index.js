@@ -35,7 +35,7 @@ app.use(function* login(next) {
   if (this.request.path !== '/login') return yield* next;
   if (this.request.method === 'GET') return this.response.body = form.replace('{{csrf}}', this.csrf);
   else if (this.request.method === 'POST') {
-    params = yield parse(this);
+    var params = yield parse(this);
     try {
       this.assertCSRF(params);
     } catch (e) {

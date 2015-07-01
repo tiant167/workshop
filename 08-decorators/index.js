@@ -7,8 +7,9 @@ var app = module.exports = koa();
 app.use(function* (next) {
   yield next;
   // add some logic here!
+  this.response.body = escape(this.state.text);
 })
 
 app.use(function* body() {
-  this.response.body = 'this following HTML should be escaped: <p>hi!</p>';
+  this.state.text = 'this following HTML should be escaped: <p>hi!</p>';
 });
